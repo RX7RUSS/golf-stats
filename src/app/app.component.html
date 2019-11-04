@@ -1,0 +1,27 @@
+<div>
+<mat-toolbar color="primary">
+  <button mat-raised-button (click)="this.player.sortPlayers()">Sort By Year Turned Pro</button>
+  <button mat-raised-button (click)="this.player.sortByName()">Sort By First Name</button>
+  <button mat-raised-button (click)="this.player.sortByHeight()">Sort By Height</button>
+  <button mat-raised-button (click)="this.player.sortByCollege()">Sort By College</button>
+</mat-toolbar>
+<div *ngFor="let player of this.player.sortedPlayers; let i=index" class="wrapper">
+  <mat-card class="player-card" *ngIf="i > 0">
+    <mat-card-header>
+      <mat-card-title>{{player.first_name}} {{player.last_name}}</mat-card-title>
+      <mat-card-subtitle>PGA Tour Player Profile</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <h4>Year turned pro: {{player.turned_pro}}</h4>
+      <h4>Height: {{player.height}}</h4>
+      <h4>Weight: {{player.weight}}</h4>
+      <h4>College attended: {{player.college}}</h4>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary">SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+  <br><br>
+</div>
+
+<router-outlet></router-outlet>
